@@ -3,7 +3,7 @@ var debug = require("debug")("dev:libs:getPics");
 var self = module.exports;
 
 
-self.getPics = function () {
+self.getPics = function ( cb) {
   db.collection('article').aggregate([
     { $unwind: "$pictures" },
   ], function ( err, objs) {
@@ -11,13 +11,14 @@ self.getPics = function () {
       debug( err);
       return;
     }
-
+    var images = [];
     for ( var i = 0, imax = objs.length; i < imax; i+=1) {
-      pics.push( {
+      images.push( {
         "type":"image",
         originalContentUrl: "https:" + objs[i].pictures,
         previewImageUrl: "https:" + objs[i].pictures,
       });
     }
+    return cb( images);
   });
 };

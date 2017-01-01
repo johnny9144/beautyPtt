@@ -8,7 +8,15 @@ var bodyParser = require('body-parser');
 var debug = require("debug")("dev:app");
 
 var index = require('./routes/index');
-require( __dirname + "/libs/getPics").getPics();
+var getPics = require( __dirname + "/libs/getPics");
+getPics.getPics( function ( images) {
+  pics = images;
+  setInterval( function () { 
+    getPics.getPics( function ( newImgs) {
+      pics = newImgs;
+    });
+  }, 1000 * 60 * 30 );
+});
 
 var app = express();
 debug("load");

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "DEBUG=dev:* node ./bin/www"
   },
   "dependencies": {
     "ain2": "^2.0.0",

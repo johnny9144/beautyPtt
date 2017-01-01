@@ -9,6 +9,9 @@
             2,
             { "SwitchCase": 1 }
       ],
+      "no-global-assign": [
+        0
+      ],
       "linebreak-style": [
         "error",
         "unix"
