@@ -1,0 +1,35 @@
+{
+    "env": {
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+      "indent": [
+        "error",
+            2,
+            { "SwitchCase": 1 }
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        0
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "no-console": "off",
+      "no-empty": "off",
+      "no-unused-vars": [
+         "error", { "vars": "all", "args": "none"}
+      ]
+    },
+    "globals": {
+      "$": false,
+      "conf": false,
+      "db": false,
+      "pics": false
+    }
+}
