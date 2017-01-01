@@ -1,0 +1,17 @@
+[Unit]
+Description=chat
+
+[Service]
+ExecStart=/home/johnny/.nvm/versions/node/v6.9.1/bin/node bin/www
+Restart=always
+RestartSec=10s
+WorkingDirectory=/home/johnny/pttBeauty
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=beauty
+User=root
+Group=root
+Environment=DEBUG=dev:*
+
+[Install]
+WantedBy=multi-user.target
