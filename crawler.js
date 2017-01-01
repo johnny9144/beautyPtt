@@ -19,7 +19,9 @@ async.waterfall([
       }
       async.eachSeries( data, function ( item, cb) {
         item.timestamp = new Date();
-        db.collection("article").insert( item, cb);
+        db.collection("article").insert( item, function (){
+          cb();
+        });
       }, callback);
     });
   },
