@@ -6,6 +6,7 @@ var self = module.exports;
 self.getPics = function ( cb) {
   db.collection('article').aggregate([
     { $unwind: "$pictures" },
+    { $limit: 1000 }
   ], function ( err, objs) {
     if ( err) {
       debug( err);
